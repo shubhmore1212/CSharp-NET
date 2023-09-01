@@ -10,21 +10,35 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-          Console.WriteLine("Please enter a valid number");
-          PrintNumbers(int.Parse(Console.ReadLine()));  
+          Console.WriteLine("Please enter a limit of even number");
+            int[] List = GetEvenNumbers(int.Parse(Console.ReadLine()));
+            PrintNumbers(List);
         }
 
-        static void PrintNumbers(int number)
+        static int[] GetEvenNumbers(int Limit)
         {
-            int Start = 0;
-            string MyVar = "";
-
-            while (Start <= number)
+            int size = Limit/2;
+            if (Limit % 2 == 1)
             {
-                Console.Write(Start + " ");
+                size++;
+            }
+          
+            int[] EvenNumsList = new int[size];
+            int Start = 0;
+            for (int i = 0; i < size; i++)
+            {
+                EvenNumsList[i] = Start;
                 Start += 2;
             }
-            Console.WriteLine();
+            return EvenNumsList;
+        }
+
+        static void PrintNumbers(int[] Numbers)
+        {
+            foreach(int i in Numbers)
+            {
+                Console.WriteLine(i);
+            }
         }
     }
 
